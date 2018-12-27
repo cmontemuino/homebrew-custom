@@ -9,12 +9,31 @@ Custom homebrew formulas not available at homebrew-core.
 
 To install the latest formula version:
 ```bash
+brew tap cmontemuino/custom
 brew install cmontemuino/custom/FORMULA
 ```
 
 To get a custom version:
 ```bash
-brew extract cmontemuino/custom/FORMULA --version=theVersion
+brew install cmontemuino/custom/FORMULA@theVersion
 ```
 
 Please bear in mind that `theVersion` should be what you find after the `@` symbol in the **Available Formulae** section.
+
+## Note about open-mpi versioned Formulae
+All versioned formulae are keg_only (i.e., formula is not symlinked into /usr/local). Therefore you might nee to do the following:
+
+If you need to have open-mpi@theVersion first in your PATH run:
+```bash
+  echo 'export PATH="/usr/local/opt/open-mpi@theVersion/bin:$PATH"' >> ~/.bash_profile
+```
+
+For compilers to find open-mpi@theVersion you may need to set:
+```bash
+  export LDFLAGS="-L/usr/local/opt/open-mpi@theVersion/lib"
+  export CPPFLAGS="-I/usr/local/opt/open-mpi@theVersion/include"
+```
+For pkg-config to find FORMULA@theVersion you may need to set:
+```bash
+  export PKG_CONFIG_PATH="/usr/local/opt/open-mpi@theVersion/lib/pkgconfig"
+```
