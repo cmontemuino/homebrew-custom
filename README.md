@@ -2,8 +2,9 @@
 Custom homebrew formulas not available at homebrew-core.
 
 ## Available Formulae
+* `open-mpi`: Open MPI 4.0.0
+* `open-mpi@3.1`: Open MPI 3.1.3
 * `open-mpi@3.0`: Open MPI 3.0.1
-* `open-mpi`: Open MPI 3.1.3
 
 ## Installation
 
@@ -21,7 +22,7 @@ brew install cmontemuino/custom/FORMULA@theVersion
 Please bear in mind that `theVersion` should be what you find after the `@` symbol in the **Available Formulae** section.
 
 ## Note about open-mpi versioned Formulae
-All versioned formulae are keg_only (i.e., formula is not symlinked into /usr/local). Therefore you might nee to do the following:
+All versioned formulae are keg_only (i.e., formula is not symlinked into /usr/local). Therefore you might need to do the following:
 
 If you need to have open-mpi@theVersion first in your PATH run:
 ```bash
@@ -37,3 +38,8 @@ For pkg-config to find FORMULA@theVersion you may need to set:
 ```bash
   export PKG_CONFIG_PATH="/usr/local/opt/open-mpi@theVersion/lib/pkgconfig"
 ```
+
+### Software Based Performance Counters
+It is possible to activate the [Software Based Performance Counters][spc](SPC) starting from version 3.1.3. You only need to append the `--with-spc` modifier when installing the formula. 
+
+[spc]: https://github.com/davideberius/ompi/wiki/How-to-Use-Software-Based-Performance-Counters-(SPCs)-in-Open-MPI
