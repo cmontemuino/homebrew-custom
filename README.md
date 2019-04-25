@@ -41,6 +41,7 @@ For pkg-config to find FORMULA@theVersion you may need to set:
 ```
 
 ### Software Based Performance Counters
-It is possible to activate the [Software Based Performance Counters][spc](SPC) starting from version 3.1.3. You only need to append the `--with-spc` modifier when installing the formula.
+It is possible to activate the [Software Based Performance Counters][spc](SPC) starting from version 3.1.3.
+In the case of version 4.0.1, you need to do nothing, but for older versions you need to append the `--with-spc` modifier when installing the formula.
 
 [spc]: https://github.com/davideberius/ompi/wiki/How-to-Use-Software-Based-Performance-Counters-(SPCs)-in-Open-MPI
