@@ -1,13 +1,13 @@
 class OpenMpi < Formula
-  desc "High performance message passing library - 4.0.1"
+  desc "High performance message passing library - 4.0.0"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
-  sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.bz2"
+  sha256 "2f0b8a36cfeb7354b45dda3c5425ef8393c9b04115570b615213faaa3f97366b"
 
   bottle do
-    sha256 "6d96c0b1c952dd49952f400c80568d33c5a0c2f720d28782e52b015363825729" => :mojave
-    sha256 "7965178c3c6e0fdd1cb4df2a8c9db6b16029508e9cc4b5b6aa006d502fef4224" => :high_sierra
-    sha256 "c4fd61bd3fd433804c02f5245a5e6cd3e3cbac66acbfdc11e5684b230a82ebc9" => :sierra
+    sha256 "144bf979a8e13639714b4d0b55a4f7a49b74f4942fc655b29c8cc56879d3e95e" => :mojave
+    sha256 "ba0dbe6719d413637ad2fa1557126c88bc0ac49191e4efefea75508de568311a" => :high_sierra
+    sha256 "b862fdf7f2c21dddc9e7e1f180622f9a398cb76091cb84fb2181cead9073eb6f" => :sierra
   end
 
   head do
@@ -16,6 +16,9 @@ class OpenMpi < Formula
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
+
+  option "with-cxx-bindings", "Enable C++ MPI bindings (deprecated as of MPI-3.0)"
+  option "with-spc", "Enable User Software Performance Counters (SPC)"
 
   depends_on "gcc"
   depends_on "libevent"
@@ -35,11 +38,11 @@ class OpenMpi < Formula
       --enable-ipv6
       --with-libevent=#{Formula["libevent"].opt_prefix}
       --with-sge
-      --enable-spc
     ]
     args << "--with-platform-optimized" if build.head?
-
-    # Fixes an issue in 4.0.0, should be fixed in 4.0.1
+    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
+    args << "--enable-spc" if build.with? "enable-spc"
+    # fixes an issue in 4.0.0, should be fixed in 4.0.1
     args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?

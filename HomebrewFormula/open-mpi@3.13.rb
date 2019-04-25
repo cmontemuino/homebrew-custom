@@ -1,4 +1,4 @@
-class OpenMpiAT31 < Formula
+class OpenMpiAT313 < Formula
   desc "High performance message passing library - 3.1.3"
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v3.1/openmpi-3.1.3.tar.bz2"
