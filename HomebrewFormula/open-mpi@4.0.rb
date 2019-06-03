@@ -1,4 +1,4 @@
-class OpenMpi < Formula
+class OpenMpiAT400 < Formula
   desc "High performance message passing library - 4.0.0"
   homepage "https://www.open-mpi.org/"
   url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.bz2"
