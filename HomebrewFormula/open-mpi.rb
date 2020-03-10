@@ -41,7 +41,6 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
-    args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
     args << "--enable-spc" if build.with? "enable-spc"
 
     system "./autogen.pl" if build.head?
