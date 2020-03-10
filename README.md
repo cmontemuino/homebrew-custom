@@ -2,7 +2,8 @@
 Custom homebrew formulas not available at homebrew-core.
 
 ## Available Formulae
-* `open-mpi`: Open MPI 4.0.2
+* `open-mpi`: Open MPI 4.0.3
+* `open-mpi@4.02`: Open MPI 4.0.2
 * `open-mpi@4.01`: Open MPI 4.0.1
 * `open-mpi@4.0`: Open MPI 4.0.0
 * `open-mpi@3.1`: Open MPI 3.1.3
