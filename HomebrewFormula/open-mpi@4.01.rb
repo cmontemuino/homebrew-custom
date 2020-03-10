@@ -1,13 +1,14 @@
-class OpenMpi < Formula
-  desc "High performance message passing library - 4.0.2"
+class OpenMpiAT401 < Formula
+  desc "High performance message passing library - 4.0.1"
   homepage "https://www.open-mpi.org/"
-  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.2.tar.bz2"
-  sha256 "900bf751be72eccf06de9d186f7b1c4b5c2fa9fa66458e53b77778dffdfe4057"
+  url "https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.1.tar.bz2"
+  sha256 "cce7b6d20522849301727f81282201d609553103ac0b09162cf28d102efb9709"
 
   bottle do
-    sha256 "ac579ec2df32c7cc06b8eed8763acc19ca60c2efcda202a9ed064f160a82d279" => :catalina
-    sha256 "414093834dd4f424b64131c8af489a4ce2154c104725fff666be34072f5622f0" => :mojave
-    sha256 "096f28e4f8b2bb81277ce390e6c4b207c3c97d63adf12b00d446d91eae096424" => :high_sierra
+    rebuild 1
+    sha256 "322c39684795f8eaf9e8f342528ecc119aa65566db10963272b975e9c6f31018" => :mojave
+    sha256 "c2a5846928bb13ccf83513f1db65ed79f8499d75cb51da655f8fb4f49ac787bd" => :high_sierra
+    sha256 "ff6a8d0b903ddbd716a33ee4669f80d12bcaa59eb11862614efaf92092c68d41" => :sierra
   end
 
   head do
@@ -43,6 +44,8 @@ class OpenMpi < Formula
     args << "--with-platform-optimized" if build.head?
     args << "--enable-mpi-cxx" if build.with? "cxx-bindings"
     args << "--enable-spc" if build.with? "enable-spc"
+    # fixes an issue in 4.0.0, should be fixed in 4.0.1
+    args << "--enable-mpi1-compatibility"
 
     system "./autogen.pl" if build.head?
     system "./configure", *args
