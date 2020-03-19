@@ -35,6 +35,15 @@ brew update
 brew upgrade cmontemuino/custom/FORMULA
 ```
 
+## Note about open-mpi version 4.0.3
+
+There's a bug in the OpenMPI 4.0.3 (see [here](https://github.com/open-mpi/ompi/issues/7516)). If you're using such version,
+then you will need to do the following:
+
+```shell script
+export PMIX_MCA_gds=^ds12
+```
+
 ## Note about open-mpi versioned Formulae
 All versioned formulae are keg_only (i.e., formula is not symlinked into /usr/local). Therefore you might need to do the following:
 
