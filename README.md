@@ -1,7 +1,9 @@
 # homebrew-custom
+
 Custom homebrew formulas not available at homebrew-core.
 
 ## Available Formulae
+
 * `open-mpi`: Open MPI 4.0.3
 * `open-mpi@4.02`: Open MPI 4.0.2
 * `open-mpi@4.01`: Open MPI 4.0.1
@@ -41,13 +43,15 @@ There's a bug in the OpenMPI 4.0.3 (see [here](https://github.com/open-mpi/ompi/
 then you will need to do the following:
 
 ```shell script
-export PMIX_MCA_gds=^ds12
+export PMIX_MCA_gds=hash
 ```
 
 ## Note about open-mpi versioned Formulae
+
 All versioned formulae are keg_only (i.e., formula is not symlinked into /usr/local). Therefore you might need to do the following:
 
 If you need to have open-mpi@theVersion first in your PATH run:
+
 ```bash
   echo 'export PATH="/usr/local/opt/open-mpi@theVersion/bin:$PATH"' >> ~/.bash_profile
 ```
@@ -66,6 +70,7 @@ For pkg-config to find FORMULA@theVersion you may need to set:
 ```
 
 ### Software Based Performance Counters
+
 It is possible to activate the [Software Based Performance Counters][spc](SPC) starting from version 3.1.3.
 You just need to append the `--with-spc` modifier when installing the formula.
 
